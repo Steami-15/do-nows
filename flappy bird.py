@@ -10,7 +10,7 @@ font2 = pygame.font.Font(None, 72)
 bg_x1 = 0
 bg_x2 = 800
 
-bird_img = pygame.image.load('bird_anim.png').convert_alpha()
+bird_img = pygame.image.load('helpme.png').convert_alpha()
 
 score = 0
 pygame.mixer.music.load("musicman.mp3")
@@ -53,19 +53,6 @@ class Bird:
         self.y += self.velocity
        
     def draw(self):
-        ticker = 0
-        frameWidth = 128
-        frameHeight = 128
-        frameNum = 0
-        ticker = 0
-        ticker+=1 
-        if ticker%10 == 0: 
-            ticker = 0
-            frameNum+=1
-            score+=1
-        
-        if frameNum>14:
-            frameNum = 0
         pygame.draw.rect(screen, (255, 0, 0), (50, self.y, 30, 30))
 bird = Bird()
 
@@ -80,17 +67,17 @@ class Pipe:
     def move(self):
         self.x -= 2 
     def draw(self):
-        self.top_height = self.height
+        top_height = self.height
         bottom_height = 800 - (self.height + self.gap)
         
-        screen.blit(self.top_pipe, (self.x, self.top_height - self.top_pipe.get_height()))
+        screen.blit(self.top_pipe, (self.x, top_height -  self.top_pipe.get_height()))
         
         screen.blit(self.bottom_pipe, (self.x, self.height + self.gap))
 pipes = []
 spawn_pipe = 0
 ticker = 0
-frameWidth = 128
-frameHeight = 128
+frameWidth = 50
+frameHeight = 51
 frameNum = 0
 ticker = 0
 
@@ -134,10 +121,19 @@ while running:
         i -= 1 #this increments the while loop
     #-end of game loop--------
     # Render section----
+    ticker+=1
+    if ticker%10 == 0: 
+            ticker = 0
+            frameNum+=1
+            score+=1
+    if frameNum>12:
+         frameNum = 0
     screen.fill((0, 0, 0))
+    
+    
     screen.blit(background_img, (bg_x1, 0))
     screen.blit(background_img, (bg_x2, 0))
-    screen.blit(bird_img, (frameWidth*frameNum, frameWidth, frameHeight))
+    screen.blit(bird_img, (50, bird.y), (frameWidth*frameNum, 0, frameWidth, frameHeight))
     for pipe in pipes:
         pipe.draw()
     score_text = font.render("Score:", True, (255, 255, 255))
