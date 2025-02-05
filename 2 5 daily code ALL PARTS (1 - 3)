@@ -1,0 +1,49 @@
+#list of characters to find the unicode of:
+letters = ["M", "a", "r", "i", "o"]
+
+# print the symbol corresponding to each unicode
+print()
+print("unicode numbers for", letters)
+for i in letters:
+    print(ord(i), end=" ")
+
+# list of unicode points for various symbols
+symbols = [0x1F60A, 0x1F10, 0x1F55D, 0x1F400, 0xF340]
+
+#print the symbol corresponding to each unicode point
+print()
+print("unicode symbols for", symbols)
+for j in symbols:
+    print(chr(j), end=" ")
+#PART 1--------------------------------------------------------------------------
+#ask the user for the current hour (1-12)
+current_hour = int(input("enter the current hour (1-12): "))
+
+hours_to_add = int(input("how many hours do you want to add? "))
+
+
+
+new_hour = ((current_hour - 1 + hours_to_add) % 12) + 1
+
+print("in", hours_to_add, "hours, the time will be", new_hour, ":00.")
+
+#PART 3-------------------------------------------------------------------------
+# Ask the user for the message to encrypt
+message = input("enter the message you want to encrypt")
+
+# Ask the user for the number of positions to shift
+shift = int(input("enter how many number of positions to shift"))
+
+
+# Create an empty string to hold the encrypted message
+encrypted_message = ""
+
+# Loop through each character in the message
+for i in message:
+   
+    shifted = (ord(i) - ord('A') + shift) % 26
+   
+    encrypted_message += chr(shifted + ord('A'))
+
+# Print the encrypted message
+print(message, "the encrypted message is", encrypted_message)
