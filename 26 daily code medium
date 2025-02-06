@@ -1,0 +1,35 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main() {
+
+
+	struct student {
+		int ID;
+		string nickname;
+		bool isAnnoying = true;
+		double exactMoney;
+	};
+
+	student Natalie;
+	Natalie.ID = 3213;
+	Natalie.nickname = "natabux";
+
+	student Gus = { -9999, "guh" };
+
+
+	cout << "Natalie Id:" << Natalie.ID << ", nickname:" << Natalie.nickname << endl;
+	cout << "Gus Id:" << Gus.ID << ", nickname:" << Gus.nickname << endl<<endl<<endl<<endl;
+
+	struct car {
+		int gas;
+		string model;
+		bool goodEngine = true;
+	};
+
+	car mysigmaohiorizzgyatcoocoocacapooopooocarlissskimsmsmsmsmsmsmsmsawesomemotorvehicle;
+	mysigmaohiorizzgyatcoocoocacapooopooocarlissskimsmsmsmsmsmsmsmsawesomemotorvehicle.gas = 12;
+	mysigmaohiorizzgyatcoocoocacapooopooocarlissskimsmsmsmsmsmsmsmsawesomemotorvehicle.model = "toyota";
+
+	cout << "the car has " << mysigmaohiorizzgyatcoocoocacapooopooocarlissskimsmsmsmsmsmsmsmsawesomemotorvehicle.gas << " gallons in its tank and the model is a " << mysigmaohiorizzgyatcoocoocacapooopooocarlissskimsmsmsmsmsmsmsmsawesomemotorvehicle.model << endl;
+}
