@@ -1,0 +1,11 @@
+message = input("enter a message: ")
+
+shift = int(input("enter how many letters you want to shift: "))
+
+encrypted_message = " "
+
+for i in message:
+  shifted = (ord(i) - ord('a') + shift) % 26
+  encrypted_message += chr(shifted + ord('a'))
+
+print(encrypted_message)
