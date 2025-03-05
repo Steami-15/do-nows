@@ -1,0 +1,23 @@
+def sumeven(n):
+    if n%2 == 1:
+        n -=1
+    s = 0
+    for i in range(n, 0, -2):
+        s += i
+    return s
+    
+    
+print(sumeven(3))
+
+def calculate_bmi(w, h):
+    return w / (h * h)
+
+result = calculate_bmi(60, 3)
+print("your bmi is", result)
+
+def count_down_up(n):
+    for i in range(n,0,-1):
+        print (i, ".", end =  " ")
+    for i in range(0,4):
+        print (i, ".", end =  " ")
+count_down_up(5)
