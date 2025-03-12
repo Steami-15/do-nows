@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int num;
+	cout << "enter an integer and see if its a multiple of 5" << endl;
+	cin >> num;
+	if (num % 5 == 0)
+		cout << "multiple of 5" << endl;
+	else
+		cout << num << "isnt a multplw of 5" << endl;
+}
+
+----------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int sum = 0;
+	int n;
+
+	cout << "enter a positive integer:";
+	cin >> n;
+
+	for (int i = 2; i <= n; i += 2) {
+		sum += i;
+	}
+	cout << "sum of even number" << sum;
+}
+
+---------------------------------------------------
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double num1, num2;
+    char op;
+
+    cout << "Enter two numbers and an operator (+, -, *, /): ";
+    cin >> num1 >> num2 >> op;
+
+    if (op == '+')
+        cout << "Result: " << num1 + num2;
+    else if (op == '-')
+        cout << "Result: " << num1 - num2;
+    else if (op == '*')
+        cout << "Result: " << num1 * num2;
+    else if (op == '/') {
+        if (num2 != 0)
+            cout << "Result: " << num1 / num2;
+        else
+            cout << "Error: Division by zero!";
+    }
+    else
+        cout << "Invalid operator";
+}
