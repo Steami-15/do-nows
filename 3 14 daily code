@@ -1,0 +1,87 @@
+import pygame
+
+pygame.init()
+screen = pygame.display.set_mode((1200,800)) #screen is a rectangle, not square!
+pygame.display.set_caption("fish mouse imput")
+
+#mouse input
+xpos = 0
+ypos = 0
+mousePos = (xpos, ypos)
+chest = 1
+sigma = 1
+ticker = 0
+
+#load in the image and make transparent
+chestImg1 = pygame.image.load("chest1.jpg").convert_alpha()
+pygame.Surface.set_colorkey (chestImg1, [255,0,255])
+#load in the image and make transparent
+chestImg2 = pygame.image.load("chest2.jpg").convert_alpha()
+pygame.Surface.set_colorkey (chestImg2, [255,0,255])
+
+cat1 = pygame.image.load("cat1.jpg").convert_alpha()
+pygame.Surface.set_colorkey (cat1, [255,0,255])
+
+cat2 = pygame.image.load("cat2.jfif").convert_alpha()
+pygame.Surface.set_colorkey (cat2, [255,0,255])
+
+while 1: #game loop###########################################################
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+            
+        print(mousePos) #this is to help you know where to set these boundaries
+        
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            
+            #check if you've clicked on the chest
+            if mousePos[0]>238 and mousePos[0] < 355 and mousePos[1]>130 and mousePos[1]<230:
+               chest = 2
+            
+         
+        if event.type == pygame.MOUSEMOTION:
+            mousePos = event.pos
+            
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            
+            #check if you've clicked on the chest
+            if mousePos[0]>572 and mousePos[0] < 710 and mousePos[1]>260 and mousePos[1]<460:
+               sigma = 2
+            
+         
+        if event.type == pygame.MOUSEMOTION:
+            mousePos = event.pos  
+    
+    #update/physics section----------------------
+
+    #keep chest open for 50 game loops:
+    if chest == 2:
+        ticker+=1
+        if ticker >= 874387438743:
+            ticker = 0
+            chest = 1
+    if sigma == 2:
+        ticker+=1
+        if ticker >= 98743874398743:
+            ticker = 0
+            sigma = 1
+
+    #render section------------------------------
+    
+    screen.fill((0,0,180))# Clear the screen
+    
+    #draw background image
+    if chest == 1:
+        screen.blit(chestImg1, (240, 140))
+    elif chest ==2: 
+        screen.blit(chestImg2, (240, 140))
+        
+    if sigma == 1:
+        screen.blit(cat1, (480, 280))
+    elif sigma ==2: 
+        screen.blit(cat2, (480, 280))
+    
+    pygame.display.flip()# Update the display
+
+#end of game loop###################################################################
+pygame.quit()
