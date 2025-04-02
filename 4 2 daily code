@@ -1,0 +1,47 @@
+// Dean.k and gabe/
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+void randombeeps(int num);
+
+int main() {
+	int pitch;
+	int numb;
+	cout << "press 1, 2, or 3" << endl;
+	cin >> pitch;
+
+	if (pitch == 1) {
+		Beep(500, 200);
+	}
+	else if (pitch == 2) {
+		Beep(250, 200);
+	}
+	else if (pitch == 3) {
+		Beep(150, 500);
+	}
+
+	int notes;
+	cout << "how many notes do you want to play" << endl;
+	cin >> notes;
+
+	for (int i = 1; i <= notes; i++) {
+		Beep(800, 200);
+	}
+	cout << "number of beeps" << endl;
+	cin >> numb;
+	randombeeps(numb);
+}
+
+void randombeeps(int num) {
+	int pitch;
+	int time;
+
+
+
+	for (int i = 1; i <= num; i++) {
+		pitch = rand() % 800 + 1;
+		time = rand() % 1000 + 300;
+		Beep(pitch, time);
+	}
+}
