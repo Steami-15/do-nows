@@ -1,0 +1,23 @@
+#include<iostream>
+#include<Windows.h>
+using namespace std;
+void TextColor(int val);
+
+int num;
+
+int main() {
+	int num;
+	cout << "give me a number from 1 to 15" << endl;
+	cin >> num;
+	TextColor(num);
+	cout << "HELLO!" << endl;
+
+
+
+}
+
+
+void TextColor(int val) {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), val);
+
+}
